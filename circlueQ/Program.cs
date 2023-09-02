@@ -12,9 +12,12 @@ namespace circlueQ
         {
             Q testq = new Q(3);
            Console.WriteLine( testq.qEnqueue(0));
-            Console.WriteLine(testq.qEnqueue(0));
-            Console.WriteLine(testq.qEnqueue(0));
-            Console.WriteLine(testq.qEnqueue(0));
+            Console.WriteLine(testq.qEnqueue(1));
+            Console.WriteLine(testq.qEnqueue(2));
+            Console.WriteLine(testq.qEnqueue(3));
+            Console.WriteLine(testq.dQueue());
+            Console.WriteLine(testq.dQueue());
+            Console.WriteLine(testq.peek());
             Console.ReadLine();
         }
     }
@@ -44,6 +47,33 @@ namespace circlueQ
                 qArr[head] = val;
                 head = (head + 1) % qArr.Length;
                 return true;
+            }
+        }
+        public int dQueue()
+        {
+            if (head == tail)
+            {
+                throw new InvalidOperationException("Empty Q cannot be dQ'd");
+            }
+            else {
+                int val = qArr[tail];
+                tail = (tail + 1) % (qArr.Length);
+                return val;
+
+            }
+        }
+
+        public int peek()
+        {
+            if (head == tail)
+            {
+                throw new InvalidOperationException("Empty Q cannot be peeked");
+            }
+            else
+            {
+                int val = qArr[tail];
+                return val;
+
             }
         }
     }
