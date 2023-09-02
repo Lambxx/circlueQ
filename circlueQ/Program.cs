@@ -10,8 +10,12 @@ namespace circlueQ
     {
         static void Main(string[] args)
         {
-            Q testq = new Q(10);
-            testq.qEnqueue(0);
+            Q testq = new Q(3);
+           Console.WriteLine( testq.qEnqueue(0));
+            Console.WriteLine(testq.qEnqueue(0));
+            Console.WriteLine(testq.qEnqueue(0));
+            Console.WriteLine(testq.qEnqueue(0));
+            Console.ReadLine();
         }
     }
 
@@ -22,10 +26,11 @@ namespace circlueQ
       
 
         public Q(int size){
+            size++; // We need to account for the empty space which is left as per text book 
             this.qArr = new int[size];
             this.head = 0;
             this.tail = 0;
-            Console.WriteLine("new Q of size " + qArr.Length + " created");
+            Console.WriteLine("new Q of size " +( qArr.Length - 1 ) + " created");
             Console.ReadLine();
 
 
